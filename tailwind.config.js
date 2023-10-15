@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: "#5965F2",
         stone: {
           50: "#ECEDEE",
           100: "#DCDDDE",
