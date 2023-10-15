@@ -1,6 +1,6 @@
 export default function Message() {
   return (
-    <div className="bg-stone-700 min-h-screen flex items-center justify-center">
+    <div className="bg-stone-600 flex items-center justify-center">
       <div className="max-w-large">
         <div className="flex px-4 py-1 hover:bg-stone-800/30">
           <img
