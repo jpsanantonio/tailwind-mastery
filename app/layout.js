@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className="flex h-screen text-stone-100">
           <div className="bg-stone-900 p-3 space-y-2 overflow-y-scroll">
-            <div className="rounded-full bg-stone-700 w-12 h-12 text-stone-100 flex items-center justify-center hover:bg-brand hover:text-white transition duration-200">
+            <div className="rounded-3xl hover:rounded-2xl bg-stone-700 w-12 h-12 text-stone-100 flex items-center justify-center hover:bg-brand hover:text-white transition-all duration-200">
               <DiscordIcon className="h-5 w-7" />
             </div>
             {/* {[...Array(40)].map((_, i) => (
