@@ -12,19 +12,29 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen text-white">
-          <div className="bg-stone-800 p-4">
-            <div className="rounded-full bg-white w-12 h-12 text-stone-800 flex items-center justify-center">
-              TW
+        <div className="flex h-screen text-stone-100">
+          <div className="bg-stone-900 p-3 space-y-2 overflow-y-scroll">
+            {[...Array(40)].map((_, i) => (
+              <div className="rounded-full bg-white w-12 h-12 text-stone-800 flex items-center justify-center">
+                {i}
+              </div>
+            ))}
+          </div>
+          <div className="bg-stone-800 w-60 flex flex-col">
+            <div className="px-3 h-12 flex items-center shadow-md">
+              Tailwind CSS
+            </div>
+            <div className="text-stone-300 p-3 overflow-y-scroll flex-1 space-y-2">
+              <p className="text-white">channel (unread)</p>
+              <p className="text-white">channel (unread)</p>
+              {[...Array(40)].map((_, i) => (
+                <p>channels {i}</p>
+              ))}
             </div>
           </div>
-          <div className="bg-stone-700 w-60 flex flex-col">
-            <div className="p-4 shadow-md">Tailwind CSS</div>
-            <div className="p-4 flex-1">channels</div>
-          </div>
-          <div className="bg-stone-600 flex flex-col flex-1">
-            <div className="p-4 shadow-md">General</div>
-            <div className="p-4 flex-1">{children}</div>
+          <div className="bg-stone-700 flex flex-col flex-1">
+            <div className="px-3 h-12 flex items-center shadow-md">General</div>
+            <div className=" flex-1 space-y overflow-y-scroll">{children}</div>
           </div>
         </div>
       </body>
