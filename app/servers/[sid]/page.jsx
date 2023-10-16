@@ -1,12 +1,14 @@
 import Message from "@/components/Message";
 
-export default function Home() {
+export default function Server({ params }) {
   return (
     <>
       <div className="bg-stone-800 w-60 flex flex-col">
-        <div className="px-3 h-12 flex items-center shadow-md">Dashboard</div>
+        <div className="px-3 h-12 flex items-center shadow-md">
+          Server {params.sid}
+        </div>
         <div className="text-stone-300 p-3 overflow-y-scroll flex-1 space-y-2">
-          <p className="text-white">Friends</p>
+          <p className="text-white">general</p>
           {[...Array(40)].map((_, i) => (
             <p>channels {i}</p>
           ))}
