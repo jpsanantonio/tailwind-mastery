@@ -20,31 +20,46 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className="flex h-screen text-stone-100">
           <div className="bg-stone-900 p-3 space-y-2 overflow-y-scroll">
-            <Link
-              href="/"
-              className={`${
-                pathname === "/"
-                  ? "rounded-2xl bg-brand text-white"
-                  : "text-gray-100 hover:rounded-2xl hover:bg-brand hover:text-white bg-gray-700 rounded-3xl"
-              } flex items-center justify-center w-12 h-12  transition-all duration-200  `}
-            >
-              <DiscordIcon className="h-5 w-7" />
-            </Link>
-            <Link
-              href="/servers/1"
-              className={`${
-                pathname === "/servers/1"
-                  ? "rounded-2xl bg-brand text-white"
-                  : "text-gray-100 hover:rounded-2xl hover:bg-brand hover:text-white bg-gray-700 rounded-3xl"
-              } flex items-center justify-center w-12 h-12  transition-all duration-200  `}
-            >
-              S1
-            </Link>
-            {/* {[...Array(40)].map((_, i) => (
-              <div className="rounded-full bg-white w-12 h-12 text-stone-800 flex items-center justify-center">
-                {i}
-              </div>
-            ))} */}
+            <div className="group">
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/"
+                    ? "rounded-2xl bg-brand text-white"
+                    : "text-gray-100 group-hover:rounded-2xl group-hover:bg-brand group-hover:text-white bg-gray-700 rounded-3xl"
+                } flex items-center justify-center w-12 h-12  transition-all duration-200 relative `}
+              >
+                <div
+                  className={`${
+                    pathname === "/"
+                      ? "h-10"
+                      : "h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100"
+                  } w-1 transition-all duration-200 origin-left bg-white rounded-r -left-3 top-[calc(1/2 - h-2.5)] absolute`}
+                ></div>
+                <div className="group-active:translate-y-px">
+                  <DiscordIcon className="h-5 w-7" />
+                </div>
+              </Link>
+            </div>
+            <div className="group">
+              <Link
+                href="/servers/1"
+                className={`${
+                  pathname === "/servers/1"
+                    ? "rounded-2xl bg-brand text-white"
+                    : "text-gray-100 hover:rounded-2xl hover:bg-brand hover:text-white bg-gray-700 rounded-3xl"
+                } flex items-center justify-center w-12 h-12  transition-all duration-200 relative`}
+              >
+                <div
+                  className={`${
+                    pathname === "/servers/1"
+                      ? "h-10"
+                      : "h-5 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100"
+                  } w-1 transition-all duration-200 origin-left bg-white rounded-r -left-3 top-[calc(1/2 - h-2.5)] absolute`}
+                ></div>
+                <div className="group-active:translate-y-px">S1</div>
+              </Link>
+            </div>
           </div>
           {children}
         </div>
