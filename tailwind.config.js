@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -12,6 +14,10 @@ module.exports = {
       lg: "0 8px 16px rgba(0,0,0,0.24)",
     },
     extend: {
+      fontFamily: {
+        sans: ["Whitney", "Open Sans", ...defaultTheme.fontFamily.sans],
+        title: ["Ginto", "Open Sans", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         brand: "#5965F2",
         gray: {
@@ -30,5 +36,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
