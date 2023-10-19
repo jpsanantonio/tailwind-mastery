@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="flex h-screen text-gray-100">
-          <div className="p-3 space-y-2 overflow-y-scroll bg-gray-900">
+          <div className="hidden md:block p-3 space-y-2 overflow-y-scroll bg-gray-900">
             <NavLink href="/">
               <Discord className="h-5 w-7" />
             </NavLink>
