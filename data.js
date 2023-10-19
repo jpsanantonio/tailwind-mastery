@@ -1,11 +1,13 @@
-import { faker } from "@faker-js/faker";
 import { format } from "date-fns";
+import { faker } from "@faker-js/faker";
 
 faker.seed(123);
 
-export const data = {
-  1: {
+export const data = [
+  {
+    id: 1,
     label: "Tailwind CSS",
+    img: "tailwind.png",
     categories: [
       {
         id: 1,
@@ -147,8 +149,10 @@ export const data = {
       },
     ],
   },
-  2: {
+  {
+    id: 2,
     label: "Next.js",
+    img: "next.png",
     categories: [
       {
         id: 6,
@@ -248,8 +252,10 @@ export const data = {
       },
     ],
   },
-  3: {
+  {
+    id: 3,
     label: "Mirage JS",
+    img: "mirage.png",
     categories: [
       {
         id: 9,
@@ -267,7 +273,7 @@ export const data = {
       },
     ],
   },
-};
+];
 
 function getMessages() {
   return [...Array(faker.number.int({ min: 7, max: 25 }))]

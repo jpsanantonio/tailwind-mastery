@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function Server() {
   let [closedCategories, setClosedCategories] = useState([]);
   let params = useParams();
-  let server = data[`${params.sid}`];
+  let server = data.find((server) => Number(server.id) === Number(params.sid));
   let channel = server.categories
     .map((c) => c.channels)
     .flat()
@@ -38,7 +38,7 @@ export default function Server() {
         </button>
 
         <div className="flex-1 overflow-y-scroll font-medium text-gray-300 pt-3 space-y-[21px]">
-          {data["1"].categories.map((category) => (
+          {server.categories.map((category) => (
             <div key={category.id}>
               {category.label && (
                 <button

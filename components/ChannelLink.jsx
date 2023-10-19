@@ -3,10 +3,14 @@
 import * as Icons from "@/components/icons";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { data } from "@/data";
 
 export default function ChannelLink({ channel }) {
   const Icon = channel.icon ? Icons[channel.icon] : Icons.Hashtag;
   const params = useParams();
+  const server = data.find(
+    (server) => Number(server.id) === Number(params.sid)
+  );
   const active = Number(channel.id) === Number(params.cid);
   let state = active
     ? "active"
@@ -21,10 +25,11 @@ export default function ChannelLink({ channel }) {
       "text-gray-300 hover:text-gray-100 hover:bg-gray-550/[0.16] active:bg-gray-550/[0.24]",
   };
 
+  console.log(server);
   return (
     <Link
       key={channel.id}
-      href={`/servers/1/channels/${channel.id}`}
+      href={`/servers/${server.id}/channels/${channel.id}`}
       className={`${classes[state]} flex items-center px-2 mx-2 py-1 rounded group relative`}
     >
       {state === "inactiveUnread" && (

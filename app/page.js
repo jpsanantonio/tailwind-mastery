@@ -16,7 +16,7 @@ export default function Home() {
         <div className="px-3 h-12 flex items-center shadow-md">General</div>
         <div className=" flex-1 space-y overflow-y-scroll">
           {[...Array(40)].map(() => (
-            <Message />
+            <></>
           ))}
         </div>
       </div>
