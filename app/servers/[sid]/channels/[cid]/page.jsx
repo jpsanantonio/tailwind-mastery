@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { useParams } from "next/navigation";
 import * as Icons from "@/components/icons";
 import ChannelLink from "@/components/ChannelLink";
-import { data } from "@/data.js";
+import MessageWithUser from "@/components/MessageWithUser";
+import Message from "@/components/Message";
+import { data } from "@/data";
+import { useParams } from "next/navigation";
+import { useState } from "react";
 
 export default function Server() {
   let [closedCategories, setClosedCategories] = useState([]);
@@ -13,7 +15,7 @@ export default function Server() {
   let channel = server.categories
     .map((c) => c.channels)
     .flat()
-    .find((channel) => +channel.id === +params.cid);
+    .find((channel) => Number(channel.id) === Number(params.cid));
 
   function toggleCategory(categoryId) {
     setClosedCategories((closedCategories) =>
@@ -119,14 +121,16 @@ export default function Server() {
             </button>
           </div>
         </div>
-        <div className="flex-1 p-3 space-y-4 overflow-y-scroll">
-          {[...Array(40)].map((_, i) => (
-            <p key={i}>
-              Message {i}. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Vel saepe laudantium sed reprehenderit incidunt! Hic rem
-              quos reiciendis, fugit quae ratione beatae veniam laborum
-              voluptatem, iusto dolorum, voluptates suscipit quia.
-            </p>
+
+        <div className="flex-1 overflow-y-scroll">
+          {channel.messages.map((message, i) => (
+            <div key={message.id}>
+              {i === 0 || message.user !== channel.messages[i - 1].user ? (
+                <MessageWithUser message={message} />
+              ) : (
+                <Message message={message} />
+              )}
+            </div>
           ))}
         </div>
       </div>
